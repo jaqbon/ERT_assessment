@@ -1,0 +1,3 @@
+For each grid point, the interpolated value was a weighted sum of the known values.
+
+The weights were the normalized reciprocals of the squares of the arc lengths from the grid to the source points.

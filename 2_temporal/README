@@ -1,0 +1,5 @@
+For this one-off example, I didn't bother with writing code to parse the file
+in a general way (which is always tedious). I used the known format to simply
+jump to needed fields.
+
+For the median filtering, I used a length of 3, the simplest choice.

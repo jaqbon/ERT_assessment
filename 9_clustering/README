@@ -1,0 +1,21 @@
+I worked on the clustering for a bit, but didn't come up with anything that I
+liked. It seems like the typical procedure is to try lots of algorithms, with
+lots of guesses for the number of clusters, and see what looks good. I did
+try a hierarchal algorithm, since I already had the code from an earlier,
+work-related project, but I didn't get any results that looked interesting.
+
+I began with a basic examination of the data, and simply plotted the variables
+against one another. I took logs to deal with the large numbers.
+
+There is definitely high-level structure. Tthe plot for the first variable, x0,
+shows that it seems to split into two distinct regions. Also, there seems to be
+a linear relationship (in log space) between x0 and variables x1 and x3.
+
+The x1 plot also indicates a linear relationship between x1 and a3. There seems
+to be no relationship between x1 and x2 or x4.
+
+The variabel x2 splits is possibly split into three (four?) regions. There is no
+obvious relationship is with either x3 or x4.
+
+The variables x3 and x4 show a more or less linear relationship, splitting into
+two areas in the x3-x4 plane.

@@ -1,0 +1,9 @@
+set view map
+set xrange [121:131]
+set yrange [10:16]
+set xlabel "Longitude"
+set ylabel "Latitude"
+splot 'interp.dat' with pm3d
+set term png
+set output "heat.png"
+replot

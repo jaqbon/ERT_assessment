@@ -1,0 +1,68 @@
+I implemented my own transformations, approximating the Earth as a sphere.
+
+Defining
+
+  C = cos(latitude)
+  S = sin(latitude)
+
+  c = cos(longitude)
+  s = sin(longitude),
+
+the radial unit vector is (in an xyz system)
+
+  r = (Cc, Cs, S),
+
+the north unit vector (tangent to the surface) is
+
+  n = (-Sc, -Ss, C),
+
+and the east unit vector is
+
+  e = (-s, c, 0).
+
+
+The unit tangent vector from point 1 to 2 is
+
+  t = (r1 x (r2 x r1)) / |r1 x (r2 x r1)|
+
+    = (r2 - r1(r1.r2)) / |r2 - r1(r1.r2)|
+
+    = (r2 - r1(r1.r2)) / sqrt(1 - (r1.r2)^2).
+
+
+The north and east components of the tangent vector are
+
+  n.t = n.r2 / sqrt(1 - (r1.r2)^2),
+
+  e.t = e.r2 / sqrt(1 - (r1.r2)^2).
+
+(n.r1 and e.r1 are 0 since r, n and e are mutually orthogonal.)
+
+
+The bearing from 1 to 2 is (the common 1/sqrt factor is irrelevant)
+
+  atan2(e.t, n.t),
+
+and the range is
+
+  R acos(r1.r2),
+
+where R is the radius of the Earth.
+
+
+To go from range and bearing to r2, we use the projections
+
+  r1.r2 (from range),
+
+  n.r2 and e.r2 (from bearing),
+
+on the mutually orthogonal r, n and e.
+
+
+
+To go beyond the spherical approximation, I would implement the algorithm by Karney,
+
+  https://arxiv.org/abs/1109.4448v2
+
+
+

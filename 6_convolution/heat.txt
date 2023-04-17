@@ -1,0 +1,31 @@
+set view map
+set xrange [-20:20]
+set yrange [-0.004:0.008]
+set tics out
+set tics nomirror
+set palette rgb 21,22,23
+set cbrange [0:3e16]
+set term png
+
+set output 'conv.png'
+plot 'conv.dat' with image
+#splot 'conv.dat' with pm3d
+
+unset cbrange
+
+set output 'raw0.png'
+plot 'raw0.dat' with image
+#splot 'raw0.dat' with pm3d
+
+set output 'raw1.png'
+plot 'raw1.dat' with image
+#splot 'raw1.dat' with pm3d
+
+set output 'conv_log.png'
+plot 'conv_log.dat' with image
+
+set output 'raw0_log.png'
+plot 'raw0_log.dat' with image
+
+set output 'raw1_log.png'
+plot 'raw1_log.dat' with image

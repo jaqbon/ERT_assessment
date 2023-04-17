@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script>
+      $(document).ready(function() {
+        $("#btn").click(function() {
+          var c = document.getElementById("myCanvas");
+          var ctx = c.getContext("2d");
+
+          var r = c.width/4;
+          var x = 3*r;
+          var y = r;
+
+          ctx.beginPath();
+          ctx.arc(x, y, r, 0, 2*Math.PI, false);
+          ctx.fillStyle = 'red';
+          ctx.fill();
+          ctx.lineWidth = 1;
+          ctx.stroke();
+
+          x = x/3;
+          y = y*3;
+
+          ctx.beginPath();
+          ctx.ellipse(x, y, r, r/2, Math.PI/4, 0, 2*Math.PI);
+          ctx.fillStyle = 'green';
+          ctx.fill();
+          ctx.lineWidth = 1;
+          ctx.stroke();
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <div>
+      <input type="button" id="btn" value="click me"/>
+    </div>
+
+    <canvas id="myCanvas" width="400" height="400" style="border:1px solid #000000;"></canvas>
+  </body>
+</html>

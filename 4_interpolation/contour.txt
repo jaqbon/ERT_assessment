@@ -1,0 +1,11 @@
+set view map
+set contour
+set xrange [121:131]
+set yrange [10:16]
+set cntrparam level incremental 1, 1, 10
+set xlabel "Longitude"
+set ylabel "Latitude"
+splot 'interp.dat' with lines nosurface
+set term png
+set output "contour.png"
+replot

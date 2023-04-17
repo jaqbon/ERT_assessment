@@ -1,0 +1,9 @@
+set terminal gif animate delay 1
+set output "transport.gif"
+stats "out.dat" name "out"
+set xrange [0:1000]
+set yrange [0:30]
+set xlabel "meters"
+set ylabel "density"
+set key tmargin
+do for [i=1:int(out_blocks-1)] { plot "out.dat" index i w lines lc 3 lw 3 ti sprintf("%.2f", (i*0.01)) }

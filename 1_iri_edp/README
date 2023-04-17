@@ -1,0 +1,14 @@
+Builds the shared library, calls Fortran from C. However, it's not returning good results.
+
+
+Calling make with no options builds a library that should be put in the standard
+library path (e.g. /lib). Calling with
+
+  make LIBLOC=local
+
+bakes-in the makefile's directory as the library location, so the executable can
+be run from that location with no privileges.
+
+
+To find the problem(s) with the bad returns, I'll need to stare at the Fortran,
+and look at IRI documention. At this point, it's probably not worth the effort.
