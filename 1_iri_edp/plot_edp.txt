@@ -1,0 +1,8 @@
+set terminal png
+set output 'edp.png'
+set xrange [0:12]
+set yrange [0:600]
+set xlabel "Plasma Frequency (MHz)"
+set ylabel "Altitude (km) "
+plot 'edp_303_11.00.dat' w lines, \
+     'edp_304_23.00.dat' w line

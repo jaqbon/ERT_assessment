@@ -21,15 +21,19 @@ endif
 
 #--------------------------------------------
 PROGRAM = call_iri
+TEST = iritest
 IRILIB  = iri_lib.so
 COBJECTS = call_iri.o
-FOBJECTS = cira.o igrf.o iridreg.o iriflip.o irifun.o irisub.o iritec.o
+FOBJECTS = cira.o igrf.o iridreg.o iriflip.o irifun.o irisub.o iritec.o iritest.o
 
 #--------------------------------------------
-all: $(PROGRAM)
+all: $(PROGRAM) $(TEST)
 
 $(PROGRAM): $(COBJECTS) $(IRILIB)
 	$(FC) -o $@ $(COBJECTS) -L. -l:$(IRILIB) $(LIBLOCAL)
+
+$(TEST): $(FOBJECTS) $(IRILIB)
+	$(FC) -o $@ $(FOBJECTS) -L. -l:$(IRILIB) $(LIBLOCAL)
 
 $(IRILIB): $(FOBJECTS)
 	$(FC) $(LBFLAGS) -o $@ $+
